@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nanotechnology: Positioning Elements</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font: 16px Arial, sans-serif;
+      line-height: 1.6;
+      color: #203040;
+      background: #f4f8fb;
+    }
+    header, footer {
+      padding: 16px;
+      color: white;
+      background: #102a43;
+      text-align: center;
+    }
+    nav, .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #b8f2e6;
+    }
+    main {
+      width: min(900px, 92%);
+      margin: 32px auto;
+    }
+    h1, h2 {
+      color: #102a43;
+      line-height: 1.2;
+    }
+    .intro {
+      text-align: center;
+    }
+    .image-box {
+      position: relative;
+      margin: 24px 0;
+      overflow: hidden;
+      border: 4px solid white;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px #102a4322;
+    }
+    .image-box img {
+      display: block;
+      width: 100%;
+    }
+    .label {
+      position: absolute;
+      padding: 8px 12px;
+      border: 2px solid white;
+      border-radius: 7px;
+      color: white;
+      background: #102a43dd;
+      font-size: clamp(0.7rem, 2.5vw, 1rem);
+      font-weight: bold;
+      text-align: center;
+      transition: 0.2s;
+    }
+    .label.active {
+      color: #102a43;
+      background: #b8f2e6;
+      transform: scale(1.08);
+    }
+    .top-left { top: 12px; left: 12px; }
+    .top-right { top: 12px; right: 12px; }
+    .bottom-left { bottom: 12px; left: 12px; }
+    .bottom-right { right: 12px; bottom: 12px; }
+    .center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .center.active {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    .buttons {
+      gap: 10px;
+      margin: 20px 0 32px;
+    }
+    button {
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 6px;
+      color: white;
+      background: #167d9a;
+      cursor: pointer;
+    }
+    button:hover, button:focus-visible {
+      background: #102a43;
+    }
+    .info {
+      margin-top: 16px;
+      padding: 16px;
+      border-left: 4px solid #167d9a;
+      background: #e6f4f6;
+    }
+    footer {
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="#healthcare">Healthcare</a>
+      <a href="#energy">Energy</a>
+      <a href="#positioning">Positioning demo</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <p>Practicum No. 6 · Positioning Elements</p>
+      <h1>Nanotechnology: Small Science, Big Possibilities</h1>
+      <p>
+        Explore how nanotechnology is being studied for healthcare and energy.
+        Click a button to highlight a label on the illustration.
+      </p>
+    </section>
+    <section id="positioning">
+      <h2>CSS Positioning Demonstration</h2>
+      <div class="image-box">
+        <img
+          alt="Illustration of connected nanoscale particles"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 440'%3E%3Cdefs%3E%3CradialGradient id='bg'%3E%3Cstop stop-color='%23276c83'/%3E%3Cstop offset='1' stop-color='%23102a43'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='900' height='440' fill='url(%23bg)'/%3E%3Cg stroke='%23b8f2e6' stroke-width='3' opacity='.8'%3E%3Cpath d='M100 120 250 210 390 100 540 210 710 120 800 260M150 340 250 210 420 330 540 210 680 350 800 260M390 100 420 330' fill='none'/%3E%3C/g%3E%3Cg fill='%23b8f2e6' stroke='white' stroke-width='5'%3E%3Ccircle cx='100' cy='120' r='24'/%3E%3Ccircle cx='250' cy='210' r='36'/%3E%3Ccircle cx='390' cy='100' r='25'/%3E%3Ccircle cx='540' cy='210' r='42'/%3E%3Ccircle cx='710' cy='120' r='28'/%3E%3Ccircle cx='800' cy='260' r='32'/%3E%3Ccircle cx='150' cy='340' r='27'/%3E%3Ccircle cx='420' cy='330' r='30'/%3E%3Ccircle cx='680' cy='350' r='25'/%3E%3C/g%3E%3C/svg%3E"
+        >
+        <div class="label top-left" id="label-top-left">Healthcare</div>
+        <div class="label top-right" id="label-top-right">Energy</div>
+        <div class="label bottom-left" id="label-bottom-left">Nano materials</div>
+        <div class="label bottom-right" id="label-bottom-right">Innovation</div>
+        <div class="label center" id="label-center">Tiny science</div>
+      </div>
+      <div class="buttons">
+        <button onclick="highlightLabel('top-left')">Top Left</button>
+        <button onclick="highlightLabel('top-right')">Top Right</button>
+        <button onclick="highlightLabel('bottom-left')">Bottom Left</button>
+        <button onclick="highlightLabel('bottom-right')">Bottom Right</button>
+        <button onclick="highlightLabel('center')">Center</button>
+      </div>
+    </section>
+    <section class="info" id="healthcare">
+      <h2>Healthcare</h2>
+      <p>
+        Researchers study nanoscale coatings and sensors for possible use in
+        medical tools. These applications need careful safety testing.
+      </p>
+    </section>
+    <section class="info" id="energy">
+      <h2>Energy</h2>
+      <p>
+        Nanomaterials are being explored for solar cells, batteries, and energy
+        storage.
+      </p>
+    </section>
+  </main>
+  <footer>
+    <p>Nano / Future · Practicum No. 6: Positioning Elements</p>
+  </footer>
+  <script>
+    function highlightLabel(position) {
+      document.querySelectorAll(".label").forEach(function(label) {
+        label.classList.remove("active");
+      });
+      document.getElementById("label-" + position).classList.add("active");
+    }
+  </script>
+</body>
+</html>
